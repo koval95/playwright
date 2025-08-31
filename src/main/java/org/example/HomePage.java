@@ -14,12 +14,12 @@ public class HomePage extends BasePage {
         super(page);
     }
 
-    public void fillCityName(String value) {
+    public void chooseCity(String value) {
         city.fill(value);
         firstOption.click();
     }
 
-    public String getTemperature() {
+    public String getCityTemperature() {
         return temperature.textContent();
     }
 

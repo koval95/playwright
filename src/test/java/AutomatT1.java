@@ -9,8 +9,8 @@ public class AutomatT1 extends BaseTest {
     @Test
     public void checkTemperature() throws IOException, URISyntaxException {
         String city = Utils.getRandomCityName();
-        homePage.fillCityName(city);
-        System.out.printf("Temperatura w mieście %s wynosi: %s", city, homePage.getTemperature());
+        homePage.chooseCity(city);
+        System.out.printf("Temperatura w mieście %s wynosi: %s", city, homePage.getCityTemperature());
     }
 
 }
