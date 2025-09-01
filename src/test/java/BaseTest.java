@@ -7,7 +7,8 @@ import java.util.Collections;
 
 public abstract class BaseTest {
 
-    private final String url = "https://meteo.imgw.pl";
+    protected static final String URL = "https://meteo.imgw.pl";
+
     private Playwright playwright;
     private Browser browser;
     private BrowserContext browserContext;
@@ -19,10 +20,11 @@ public abstract class BaseTest {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         browserContext = browser.newContext(new Browser.NewContextOptions()
+                .setViewportSize(1920, 1080)
                 .setPermissions(Collections.emptyList())
         );
         page = browserContext.newPage();
-        page.navigate(url);
+        page.navigate(URL);
         homePage = new HomePage(page);
     }
 
